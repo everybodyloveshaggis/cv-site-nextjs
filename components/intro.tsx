@@ -3,13 +3,28 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BsArrowRight, BsDownload, BsLinkedin } from "react-icons/bs";
 import { FaGitSquare, FaGithubSquare } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
+import { useActiveSectionContext } from "../context/active-session-context";
 
 export default function Intro() {
+  const {ref, inView} = useInView({
+    threshold: 0.5,
+  });
+  const { setActiveSection,timeOfLastClick } = useActiveSectionContext();
+
+  useEffect(() => {
+    if (inView && Date.now() - timeOfLastClick >1000) {
+      setActiveSection("Home");
+    }
+  },[inView, setActiveSection, timeOfLastClick])
+
   return (
-    <section className="mb-30 max-w-[50rem] text-center sm:mb-0">
+    <section className="mb-30 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+    id="Home"
+    ref={ref}>
       <div className="flex items-center justify-center py-[-40]">
           <div className="relative">
             <motion.div
@@ -52,6 +67,14 @@ export default function Intro() {
       >
         Hello, I'm <span className="font-bold text-4xl">Scott McMahon</span>
       </motion.h1>
+
+      <motion.h6
+        className="mb-10 mt-4 px-4 text-2xl font-medium leading-[1.5] sm:text-xl"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+      >
+        Developer and DevOps Engineer  focusing on Site Reliability Engineering at <span className="font-bold text-2xl">The Scottish Government</span>
+      </motion.h6>
 
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"

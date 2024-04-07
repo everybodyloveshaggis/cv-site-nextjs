@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { projectsData } from "../lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-
 type ProjectProps = (typeof projectsData)[number];
 
 export default function Project({
@@ -22,8 +21,7 @@ export default function Project({
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-    <motion.div
-      ref={ref}
+    <motion.div ref={ref}
       style={{
         scale: scaleProgess,
         opacity: opacityProgess,
