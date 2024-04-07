@@ -3,27 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { BsArrowRight, BsDownload, BsLinkedin } from "react-icons/bs";
-import { FaGitSquare, FaGithubSquare } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "../context/active-session-context";
+import { FaGithubSquare } from "react-icons/fa";
+import { useSectionInView } from "../lib/hooks";
 
 export default function Intro() {
-  const {ref, inView} = useInView({
-    threshold: 0.5,
-  });
-  const { setActiveSection,timeOfLastClick } = useActiveSectionContext();
-
-  useEffect(() => {
-    if (inView && Date.now() - timeOfLastClick >1000) {
-      setActiveSection("Home");
-    }
-  },[inView, setActiveSection, timeOfLastClick])
+ const { ref } =  useSectionInView('Home', 0.5);
 
   return (
-    <section className="mb-30 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
-    id="Home"
+    <section className="mb-30 max-w-[50rem] text-center sm:mb-0 scroll-mt-[50rem]"
+    id="home"
     ref={ref}>
       <div className="flex items-center justify-center py-[-40]">
           <div className="relative">
@@ -73,7 +63,7 @@ export default function Intro() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
       >
-        Developer and DevOps Engineer  focusing on Site Reliability Engineering at <span className="font-bold text-2xl">The Scottish Government</span>
+        Developer & DevOps Engineer
       </motion.h6>
 
       <motion.div

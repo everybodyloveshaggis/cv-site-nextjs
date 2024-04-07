@@ -1,8 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState } from "react";
-import { links } from "../lib/data";
-
-type SectionName = (typeof links)[number]["name"];
+import type { SectionName } from "../lib/types";
 
 type ActiveSectioncontextProviderProps = {
   children: React.ReactNode;
@@ -40,6 +38,5 @@ export function useActiveSectionContext() {
     if (context === null) {
         throw new Error( "useActiveSectionContext must be used within ActiveSessionContextProvider");
     }
-
     return context;
 }
