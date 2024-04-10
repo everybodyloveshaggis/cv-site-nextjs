@@ -47,6 +47,7 @@ export default function Experience() {
                 <p className="!mt-1 !font-normal text-gray-700">
                   {item.description}
                 </p>
+                {/* https://github.com/stephane-monnot/react-vertical-timeline/issues/166 */}
               </VerticalTimelineElement>
             </div>
           );
