@@ -7,47 +7,48 @@ import React from "react";
 import { BsArrowRight, BsDownload, BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "../lib/hooks";
+import { useActiveSectionContext } from "../context/active-session-context";
 
 export default function Intro() {
- const { ref } =  useSectionInView('Home', 0.5);
-
+  const { ref } = useSectionInView('Home', 0.5);
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   return (
     <section className="mb-30 max-w-[50rem] text-center sm:mb-0 scroll-mt-[50rem]"
-    id="home"
-    ref={ref}>
+      id="home"
+      ref={ref}>
       <div className="flex items-center justify-center py-[-40]">
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "tween",
-                duration: 0.2,
-              }}
-            >
-              <Image
-                src="/me.JPG"
-                alt="Portrait of Scott McMahon"
-                width={152}
-                height={152}
-                priority={true}
-                className="h-28 w-28 rounded-full border-[0.35] object-cover border-white shadow-xl"
-              />
-            </motion.div>
-            <motion.span
-              className="text-4xl absolute bottom-0 right-0"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 125,
-                delay: 0.2,
-                duration: 0.7,
-              }}
-            >
-              👋
-            </motion.span>
-          </div>
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              type: "tween",
+              duration: 0.2,
+            }}
+          >
+            <Image
+              src="/me.JPG"
+              alt="Portrait of Scott McMahon"
+              width={152}
+              height={152}
+              priority={true}
+              className="h-28 w-28 rounded-full border-[0.35] object-cover border-white shadow-xl"
+            />
+          </motion.div>
+          <motion.span
+            className="text-4xl absolute bottom-0 right-0"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 125,
+              delay: 0.2,
+              duration: 0.7,
+            }}
+          >
+            👋
+          </motion.span>
+        </div>
       </div>
 
       <motion.h1
@@ -77,6 +78,10 @@ export default function Intro() {
         <Link
           href={"#contact"}
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer"
+          onClick={() => {
+            setActiveSection("Contact")
+            setTimeOfLastClick(Date.now())
+          }}
         >
           Contact Me{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition " />
