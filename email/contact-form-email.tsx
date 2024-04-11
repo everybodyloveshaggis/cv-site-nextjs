@@ -39,7 +39,5 @@ export default function ContactFormEmail({ senderMessage, senderEmail }: Contact
         </Tailwind>
       </Html>
     );
-
-    console.log(responsehtml);
     return responsehtml;
 }

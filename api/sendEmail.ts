@@ -16,29 +16,33 @@ export const sendEmail = async (formData: FormData) => {
     }
 
     if (!validateStringNotNull(senderMessage, 5000)) {
-        return { error: "invalid message" }
+        return { error: "invalid message" };
     }
 
+    let data;
     try {
-        var response = await resend.emails.send({
-            from: 'Contact Form <onboarding@resend.dev>',
+        data = await resend.emails.send({
+            from: 'Test <onboarding@resend.dev>',
             to: 'everybodyloveshaggis@gmail.com',
             subject: 'Message from cv-site-nextjs',
             reply_to: senderEmail as string, //assertion needed here as we know for sure this will be correct, due to validation we are preforming on frontend and API.
-            // text: senderMessage as string,
             react: React.createElement(ContactFormEmail,
                 {
                     senderMessage: senderMessage as string,
                     senderEmail: senderEmail as string
-                }
-            )
+                }),
         });
-
-        console.log("Email sent. ID: " + response.data?.id);
-        return "SUCCESS";
+        console.log("Error message " + data.error?.message)
+        if(data.error?.message !== undefined)
+        {
+            throw data.error;
+        }
     } catch (error: unknown) { //unknown is needed when we are not sure what will be returned for exmaple with 3rd party APIs
         return {
             error: getErrorMessage(error),
-        }
+        };
     }
-}
+    return {
+        data,
+    };
+};
