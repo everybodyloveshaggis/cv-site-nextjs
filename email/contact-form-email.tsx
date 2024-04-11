@@ -19,27 +19,27 @@ type ContactFormEmailProps = {
 };
 
 export default function ContactFormEmail({ senderMessage, senderEmail }: ContactFormEmailProps) {
-    console.log(<Heading as='h2'>
-                            You received the following message from the contact form
-                        </Heading>);
-    console.log(<Text>{senderMessage}</Text>);
-    return (<Html lang='en'>
+    var responsehtml =(
+        <Html>
         <Head />
-        <Preview>New Message From Your Portfolio</Preview>
+        <Preview>New message from your portfolio site</Preview>
         <Tailwind>
-            <Body>
-                <Container>
-                    <Section>
-                        <Heading as='h2'>
-                            You received the following message from the contact form
-                        </Heading>
-                        <Text>{senderMessage}</Text>
-                        <Hr />
-                        <Text>The sender's email is {senderEmail}</Text>
-                    </Section>
-                </Container>
-            </Body>
+          <Body className="bg-gray-100 text-black">
+            <Container>
+              <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
+                <Heading className="leading-tight">
+                  You received the following message from the contact form
+                </Heading>
+                <Text>{senderMessage}</Text>
+                <Hr />
+                <Text>The sender's email is: {senderEmail}</Text>
+              </Section>
+            </Container>
+          </Body>
         </Tailwind>
-    </Html>
-    )
+      </Html>
+    );
+
+    console.log(responsehtml);
+    return responsehtml;
 }

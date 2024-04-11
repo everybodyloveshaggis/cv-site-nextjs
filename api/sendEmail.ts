@@ -28,7 +28,6 @@ export const sendEmail = async (formData: FormData) => {
             // text: senderMessage as string,
             react: React.createElement(ContactFormEmail,
                 {
-                    //assertion needed here as we know for sure this will be correct, due to validation we are preforming on frontend and API
                     senderMessage: senderMessage as string,
                     senderEmail: senderEmail as string
                 }
