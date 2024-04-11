@@ -88,7 +88,7 @@ export default function Intro() {
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer border border-black/10"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer borderBlack"
           href="/CV.pdf"
           download
         >
@@ -97,7 +97,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 flex items-center gap-2 rounded-full text-[#0077B5] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer border border-black/10"
+          className="bg-white p-4 flex items-center gap-2 rounded-full text-[#0077B5] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack"
           href="https://linkedin.com"
           target="_blank"
         >
@@ -105,7 +105,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 flex items-center gap-2 rounded-full text-[1.20rem] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer border border-black/10"
+          className="bg-white p-4 flex items-center gap-2 rounded-full text-[1.20rem] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack"
           href="https://github.com"
           target="_blank"
         >
