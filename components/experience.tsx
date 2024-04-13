@@ -1,11 +1,12 @@
 "use client"
-import React from 'react'
+import React, { useContext } from 'react'
 import SectionHeading from './section-heading';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { experiencesData } from '../lib/data'
 import { useSectionInView } from '../lib/hooks';
 import { useInView } from 'react-intersection-observer';
+import { useTheme } from '../context/theme-context';
 
 type ExperienceElementProps = {
   item: {
@@ -14,16 +15,35 @@ type ExperienceElementProps = {
       title: string
       location: string
       description: string
-  }
+  },
+};
+
+export default function Experience() {
+  const { ref } = useSectionInView('Experience');
+  return (
+    <section className='scroll-mt-28 mb-28 sm:mb-40'
+      ref={ref}
+      id='experience'>
+      <SectionHeading>My Experience</SectionHeading>
+      <VerticalTimeline lineColor=''>
+      {experiencesData.map((item, index) => (
+        <ExperienceElement key={index} item={item}/>
+      ))
+      }
+      </VerticalTimeline>
+    </section>
+  )
 }
 
-const ExperienceElement = ({ item }: ExperienceElementProps) => {
-  const { ref, inView } = useInView({ threshold: 0 })
+const ExperienceElement = ({ item }: ExperienceElementProps,) => {
+  const { ref, inView } = useInView({ threshold: 0 });
+  const { theme } = useTheme();
   return (
       <div ref={ref} className='vertical-timeline-element'>
           <VerticalTimelineElement
               contentStyle={{
-                background: '#f3f4f6',
+                
+                background: theme==='light' ? '#f3f4f6' :  'rgb(255,255,255,0.5)',
                 boxShadow: 'none',
                 border: '1px solid rgba(0, 0, 0, 0.05)',
                 textAlign: 'left',
@@ -50,19 +70,3 @@ const ExperienceElement = ({ item }: ExperienceElementProps) => {
   )
 }
 
-export default function Experience() {
-  const { ref } = useSectionInView('Experience');
-  return (
-    <section className='scroll-mt-28 mb-28 sm:mb-40'
-      ref={ref}
-      id='experience'>
-      <SectionHeading>My Experience</SectionHeading>
-      <VerticalTimeline lineColor=''>
-      {experiencesData.map((item, index) => (
-        <ExperienceElement key={index} item={item} />
-      ))
-      }
-      </VerticalTimeline>
-    </section>
-  )
-}

@@ -68,7 +68,7 @@ export default function Intro() {
       </motion.h6>
 
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+        className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -77,7 +77,7 @@ export default function Intro() {
       >
         <Link
           href={"#contact"}
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
           onClick={() => {
             setActiveSection("Contact")
             setTimeOfLastClick(Date.now())
@@ -88,7 +88,8 @@ export default function Intro() {
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer borderBlack"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition hover:cursor-pointer borderBlack
+          dark:bg-white/10"
           href="/CV.pdf"
           download
         >
@@ -97,19 +98,20 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 flex items-center gap-2 rounded-full text-[#0077B5] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack"
+          className="bg-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack dark:bg-white/10
+          "
           href="https://linkedin.com"
           target="_blank"
         >
-          <BsLinkedin />
+          <BsLinkedin className="text-[#0077B5] dark:text-white/40 "/>
         </a>
 
         <a
-          className="bg-white p-4 flex items-center gap-2 rounded-full text-[1.20rem] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack"
+          className="bg-white p-4 flex items-center text-black gap-2 rounded-full text-[1.20rem] focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition hover:cursor-pointer borderBlack dark:bg-white/10"
           href="https://github.com"
           target="_blank"
         >
-          <FaGithubSquare />
+          <FaGithubSquare className="text-gray-950 dark:text-white/40 scale-125"/>
         </a>
       </motion.div>
     </section>
