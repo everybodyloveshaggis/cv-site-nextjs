@@ -32,11 +32,13 @@ export const sendEmail = async (formData: FormData) => {
                     senderEmail: senderEmail as string
                 }),
         });
-        console.log("Error message " + data.error?.message)
+        
         if(data.error?.message !== undefined)
         {
+            console.log("Error sending email: " + data.error?.message)
             throw data.error;
         }
+        console.log("Email sent from: " + formData.get("senderEmail"));
     } catch (error: unknown) { //unknown is needed when we are not sure what will be returned for exmaple with 3rd party APIs
         return {
             error: getErrorMessage(error),
