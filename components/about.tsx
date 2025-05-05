@@ -18,12 +18,7 @@ const { ref } =  useSectionInView('About');
     id='about'>
         <SectionHeading>About Me</SectionHeading>
         <p className='mb-3'>
-        <span className='font-semibold'>Early Career and Software Development</span><br />
-        In 2017, I embarked on my IT adventure as a junior software engineer. My days were filled with coding ASP.NET applications, where I dabbled in technologies like C#, HTML, JavaScript, XSLT, and T-SQL. But my role extended beyond mere coding. As part of a small yet dynamic technical team, I found myself triaging and resolving IT-related tickets and service requests. The experience was invaluable, and I also took charge of deployment management—both for physical servers and virtual environments (think Windows Server and Hyper-V). Cybersecurity and backup procedures became second nature to me during this phase.
-        </p>
-        <p className='mb-3'>
-        <span className='font-semibold'>Later Roles and Diverse Technology Exposure</span><br />
-        Fast forward a year, and I stepped into a new chapter: an Application Support / 3rd Line Service Desk role within another public sector organization. Here, my tech toolkit expanded exponentially. I immersed myself in a diverse array of software technologies, including Java (Spring framework, JSF, Thymeleaf), Drools, Red Hat BRMS, Red Hat Process Automation Manager, Express JS, Angular, PostgreSQL, and Oracle. But it wasn’t just about software; I also delved into server-side technologies like Apache HTTPD, RHEL, JBoss EAP, JBoss Portal, JBoss Fuse, IIS, and AMQ. Tools like SonarQube, Snyk, Travis-CI, and Jenkins became my trusted companions. And let’s not forget my affinity for testing technologies—JMeter and UiPath. Containerization? Yep, I mastered both Podman and Docker. But my current role as a DevOps Engineer takes the cake. I’m all about Site Reliability Engineering, deploying and maintaining tools like Dynatrace, crafting alerting systems, and even building bespoke solutions using Java and React. It’s been quite the journey—a blend of software development, server administration, and cutting-edge DevOps practices. 🚀
+        As a site reliability engineer with a background in IT support and full stack development, I'm uniquely positioned to understand pain points from both delivery and operations perspectives.<br/> I'm a tech enthusiast committed to progress and currently pursuing <br/><b>AWS CLF-C02</b> and <b>Dynatrace Master</b> <br/>Certifications.<br/> In my spare time, I enjoy hiking, amateur skiing, and bouldering.
         </p>
     </motion.section>
   );
