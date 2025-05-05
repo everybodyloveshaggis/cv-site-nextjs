@@ -5,11 +5,11 @@ import { getErrorMessage } from "../lib/request-error-message-handler";
 import ContactFormEmail from "../email/contact-form-email"
 import React from "react";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
     const senderMessage = formData.get("senderMessage");
     const senderEmail = formData.get("senderEmail");
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     if (!validateStringNotNull(senderEmail, 200)) {
         return { error: "invalid email" };
@@ -22,7 +22,7 @@ export const sendEmail = async (formData: FormData) => {
     let data;
     try {
         data = await resend.emails.send({
-            from: 'Test <onboarding@resend.dev>',
+            from: senderEmail as string,
             to: 'everybodyloveshaggis@gmail.com',
             subject: 'Message from cv-site-nextjs',
             reply_to: senderEmail as string, //assertion needed here as we know for sure this will be correct, due to validation we are preforming on frontend and API.
