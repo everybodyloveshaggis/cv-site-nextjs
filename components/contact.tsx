@@ -31,7 +31,7 @@ export default function Contact() {
         Please contact me at <a href='mailto:scotty.mcmahon@outlook.com'
           className='underline'>scotty.mcmahon@outlook.com</a> or through this form</p>
 
-          <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
+          <div className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
             <p>Please note: Generic messages without salary information and details about the role included will not receive a response.</p>
           </div>
 
