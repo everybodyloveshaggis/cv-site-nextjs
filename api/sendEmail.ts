@@ -22,7 +22,7 @@ export const sendEmail = async (formData: FormData) => {
     let data;
     try {
         data = await resend.emails.send({
-            from: senderEmail as string,
+            from: "test@coroobiea.resend.app" as string,
             to: 'everybodyloveshaggis@gmail.com',
             subject: 'Message from cv-site-nextjs',
             reply_to: senderEmail as string, //assertion needed here as we know for sure this will be correct, due to validation we are preforming on frontend and API.
